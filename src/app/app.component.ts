@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FavoriteChangeEventArgs } from './favorite/favorite.component';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-world';
+  
+  title = 'Hi, Zuzia Mika here, how are you';
+  counter = 0;
+  
+  title2:string;
+  post = {
+    title: 'Title from post',
+    isFavorite: true
+  };
+
+  viewMode = 'map';
+
+  onFavoriteChange(isFavorite:FavoriteChangeEventArgs){
+    console.log('component changed',++this.counter, isFavorite);
+    
+  }
 }

@@ -1,0 +1,34 @@
+<h2> {{ title }} and numnber: {{ number |number }}
+  dec num: {{ decNumber|number:'1.2-2'}} Price: {{ price|currency:'EUR'}}
+  Reldate: {{ releaseDate|date:'short'}}</h2>
+<div (click)="divClicked($event)" class="container">
+  <button (click)="onAdd('new one')" class="btn btn-primary">Add course</button>
+  <!-- <div *ngIf="courses.length >0"> -->
+    <!-- <div *ngIf="courses.length > 0; else noCourses"> -->
+      <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
+      <ng-template #showCources>
+    <ul [style.backgroundColor]="isActive ? 'blue':'green'">
+      <li *ngFor="let course of courses; index as index; even as even">
+        {{ index }} - {{ course | uppercase }} <span *ngIf="even"> EVEN </span>
+        <button (click)="removeCource(course)">Remove</button>
+        <button (click)="removeChange(course)">Update</button>
+      </li>
+    </ul>
+  </ng-template>
+  <!-- </div> -->
+  <!-- <div *ngIf="courses.length == 0"> -->
+<ng-template #noCourses>
+    <h2> There is no courses!</h2>
+</ng-template>
+  <!-- </div> -->
+  <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Show me more</button>
+  <br>
+  <input [hidden]="courses.length == 0" (keyup)="myKeyUp($event)" />
+  <br>
+  <input [hidden]="courses.length > 0" #someValue (keyup.enter)="myKeyUpEnter($event, someValue.value)" />
+  <br>
+  <input [value]="email" (keyup.enter)="email=$event.target.value; myEnter()" />
+  <br>
+  <input [(ngModel)]="email2" (keyup.enter)="myEnterNgModel()" />
+  <h2>{{ text |summary:'60'}}</h2>
+</div>
