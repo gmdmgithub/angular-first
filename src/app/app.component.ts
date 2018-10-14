@@ -10,12 +10,12 @@ import { FavoriteChangeEventArgs } from './favorite/favorite.component';
 })
 export class AppComponent {
   
-  title = 'Hi, Zuzia Mika here, how are you';
+  title = 'Hi its me, how are you?';
   counter = 0;
   
   title2:string;
   post = {
-    title: 'Title from post',
+    title: 'Hi, post is saying :)',
     isFavorite: true
   };
 

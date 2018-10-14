@@ -3,6 +3,7 @@ import { CoursesService } from './courses.service';
 
 @Component({
     selector: 'courses',
+    styleUrls: ['./courses.component.css'],
     templateUrl: './courses.component.html'
     //template moved to seperate file
     // template: `<h2 > {{ title }} and numnber: {{ number |number }} 
@@ -34,7 +35,7 @@ import { CoursesService } from './courses.service';
     
 })
 export class CoursesCompoent{
-    title = "My own title";
+    title = "Courses compoenent - my own title";
     number = 12345;
     decNumber = 1243.34567;
     price = 12453.456;

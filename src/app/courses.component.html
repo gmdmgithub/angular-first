@@ -1,15 +1,24 @@
-<h2> {{ title }} and numnber: {{ number |number }}
-  dec num: {{ decNumber|number:'1.2-2'}} Price: {{ price|currency:'EUR'}}
-  Reldate: {{ releaseDate|date:'short'}}</h2>
+<h2> {{ title }}</h2>
+<h2> Format pipes, numnber format: {{ number |number }}</h2>
+<h2>
+  Dec num format : {{ decNumber|number:'1.2-2'}} 
+</h2>
+  <h2>Price: {{ price|currency:'EUR'}}
+  and date format: {{ releaseDate|date:'short'}}
+</h2>
+<hr>
+
 <div (click)="divClicked($event)" class="container">
   <button (click)="onAdd('new one')" class="btn btn-primary">Add course</button>
   <!-- <div *ngIf="courses.length >0"> -->
-    <!-- <div *ngIf="courses.length > 0; else noCourses"> -->
-      <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
-      <ng-template #showCources>
+  <!-- <div *ngIf="courses.length > 0; else noCourses"> -->
+  <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
+  <ng-template #showCources>
     <ul [style.backgroundColor]="isActive ? 'blue':'green'">
-      <li *ngFor="let course of courses; index as index; even as even">
-        {{ index }} - {{ course | uppercase }} <span *ngIf="even"> EVEN </span>
+      <li *ngFor="let course of courses; index as index; even as even; odd as odd">
+        <span>{{ index }} - {{ course | uppercase }} </span> 
+        <span *ngIf="even"> EVEN </span>
+        <span *ngIf="odd"> ODD </span>
         <button (click)="removeCource(course)">Remove</button>
         <button (click)="removeChange(course)">Update</button>
       </li>
@@ -17,9 +26,9 @@
   </ng-template>
   <!-- </div> -->
   <!-- <div *ngIf="courses.length == 0"> -->
-<ng-template #noCourses>
+  <ng-template #noCourses>
     <h2> There is no courses!</h2>
-</ng-template>
+  </ng-template>
   <!-- </div> -->
   <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Show me more</button>
   <br>

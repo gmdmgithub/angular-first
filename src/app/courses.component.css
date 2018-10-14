@@ -1,0 +1,23 @@
+.btn{
+    margin: 10px;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+
+}
+ul{
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    list-style: none;
+    padding:0 0 0 5px;
+}
+ul > li{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+li > button{
+    width: 120px;
+    border-radius: 5px;
+}
