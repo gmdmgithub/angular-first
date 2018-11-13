@@ -1,12 +1,14 @@
-<h2> {{ title }}</h2>
-<h2> Format pipes, numnber format: {{ number |number }}</h2>
-<h2>
-  Dec num format : {{ decNumber|number:'1.2-2'}}
-</h2>
-<h2>Price: {{ price|currency:'EUR'}}
-  and date format: {{ releaseDate|date:'short'}}
-</h2>
-<hr>
+<nav @fade>
+  <h2> {{ title }}</h2>
+  <h2> Format pipes, numnber format: {{ number |number }}</h2>
+  <h2>
+    Dec num format : {{ decNumber|number:'1.2-2'}}
+  </h2>
+  <h2>Price: {{ price|currency:'EUR'}}
+    and date format: {{ releaseDate|date:'short'}}
+  </h2>
+  <hr>
+</nav>
 
 <div (click)="divClicked($event)" class="container">
   <button (click)="onAdd('new one')" class="btn btn-primary">Add course</button>
@@ -15,7 +17,7 @@
   <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
   <ng-template #showCources>
     <ul [style.backgroundColor]="isActive ? 'blue':'green'">
-      <li *ngFor="let course of courses; index as index; even as even; odd as odd">
+<li @fade *ngFor="let course of courses; index as index; even as even; odd as odd">
         <span>{{ index }} - {{ course | uppercase }} </span>
         <span *ngIf="even"> EVEN </span>
         <span *ngIf="odd"> ODD </span>
