@@ -9,11 +9,11 @@ import { FavoriteChangeEventArgs } from './favorite/favorite.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   title = 'Hi its me, how are you?';
   counter = 0;
-  
-  title2:string;
+
+  title2: string;
   post = {
     title: 'Hi, post is saying :)',
     isFavorite: true
@@ -21,8 +21,8 @@ export class AppComponent {
 
   viewMode = 'map';
 
-  onFavoriteChange(isFavorite:FavoriteChangeEventArgs){
-    console.log('component changed',++this.counter, isFavorite);
-    
+  onFavoriteChange(isFavorite: FavoriteChangeEventArgs) {
+    console.log('component changed', ++this.counter, isFavorite);
+
   }
 }

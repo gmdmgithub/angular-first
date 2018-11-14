@@ -10,14 +10,14 @@
   <hr>
 </nav>
 
-<div (click)="divClicked($event)" class="container">
+<div (click)="divClicked($event)" class="container" @translate20>
   <button (click)="onAdd('new one')" class="btn btn-primary">Add course</button>
   <!-- <div *ngIf="courses.length >0"> -->
   <!-- <div *ngIf="courses.length > 0; else noCourses"> -->
   <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
   <ng-template #showCources>
     <ul [style.backgroundColor]="isActive ? 'blue':'green'">
-<li @fade *ngFor="let course of courses; index as index; even as even; odd as odd">
+<li @bouncer  *ngFor="let course of courses; index as index; even as even; odd as odd">
         <span>{{ index }} - {{ course | uppercase }} </span>
         <span *ngIf="even"> EVEN </span>
         <span *ngIf="odd"> ODD </span>
@@ -32,7 +32,7 @@
     <h2> There is no courses!</h2>
   </ng-template>
   <!-- </div> -->
-  <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Show me more</button>
+<button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Show me more</button>
   <br>
   <input [hidden]="courses.length == 0" (keyup)="myKeyUp($event)" />
   <br>
