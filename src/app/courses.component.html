@@ -33,6 +33,9 @@
   </ng-template>
   <!-- </div> -->
 <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Show me more</button>
+<br>
+<p [@toggleHeight]="isShow">what is going on?</p>
+<button class="btn btn-primary" (click)="isShow=(isShow==='show' )? 'hide' : 'show'">Toggle me</button>
   <br>
   <input [hidden]="courses.length == 0" (keyup)="myKeyUp($event)" />
   <br>

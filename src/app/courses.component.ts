@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CoursesService } from './courses.service';
-import { fade, translate20, bouncer } from './animations';
+import { fade, translate20, bouncer, fade2, fadeWithFunction, toggle } from './animations';
 
 @Component({
   selector: 'courses',
@@ -9,7 +9,10 @@ import { fade, translate20, bouncer } from './animations';
   animations: [
     fade,
     translate20,
-    bouncer
+    bouncer,
+    fade2,
+    fadeWithFunction,
+    toggle
     // trigger("fade", [
     //   state('void',style({opacity: 0})),
     //   transition("void => *", [ ///define from the void state (initial) to de final state
