@@ -34,24 +34,30 @@ export let translate20 = trigger("translate20", [
 ]);
 
 export let bouncer = trigger("bouncer", [
-  transition(":leave", [
-    animate(
-      "0.5s ease-in",
-      keyframes([
-        style({
-          offset: 0.2,
-          opacity: 1,
-          transform: "translateX(20px)"
-        }),
-        style({
-          offset: 1,
-          opacity: 0,
-          transform: "translateX(-2000px)"
-        })
-      ])
-    )
-  ])
-]);
+         transition(":leave", [
+           animate(
+             "0.5s ease-in",
+             keyframes([
+               style({
+                 offset: 0.2,
+                 opacity: 1,
+                 transform: "translateX(20px)"
+               }),
+               style({
+                 offset: 1,
+                 opacity: 0,
+                 transform: "translateX(-2000px)"
+               })
+             ])
+           )
+         ]),
+         transition(":enter", [
+             animate("1s ease-in", style({
+                 opacity: 0
+             }))
+           
+         ])
+       ]);
 
 export let fade2 = trigger("fade2", [
 
@@ -66,19 +72,30 @@ export let fade2 = trigger("fade2", [
     ])
 ]);
 
-let fadeAnimation = animation([
-    
-    style({ 
-        opacity: 0,
-        height: '200px',
-        backgroundColor: 'yellow' 
-    }), 
-    animate(2000)
-])
+let fadeAnimation = animation(
+  [
+    style({
+      opacity: 0,
+      height: "200px",
+      backgroundColor: "yellow"
+    }),
+    animate("{{ duration }} {{ easein }}")
+  ],
+  {
+    params: {
+      duration: 2000,
+        easein: 'ease-in'
+    }
+  }
+); // as a second parameter animation metadata
 
 //the same as fade2 but with function
 export let fadeWithFunction = trigger("fade3", [
-  transition(":enter", useAnimation(fadeAnimation)),
+  transition(":enter", useAnimation(fadeAnimation),{ //here we can change all/selected parameters
+      params: {
+        duration: 1500
+      }
+  }),
   transition("* => void", [
     //"leave" - could be leave
     // as many transition as we wish - second from initial to void (remove)

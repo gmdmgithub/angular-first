@@ -1,7 +1,7 @@
-<nav @fade>
-  <h2> {{ title }}</h2>
+<nav >
+<h2 @fade> {{ title }}</h2>
   <h2> Format pipes, numnber format: {{ number |number }}</h2>
-  <h2>
+<h2 @translate20>
     Dec num format : {{ decNumber|number:'1.2-2'}}
   </h2>
   <h2>Price: {{ price|currency:'EUR'}}
@@ -10,8 +10,8 @@
   <hr>
 </nav>
 
-<div (click)="divClicked($event)" class="container" @translate20>
-  <button (click)="onAdd('new one')" class="btn btn-primary">Add course</button>
+<div (click)="divClicked($event)" class="container" >
+<button (click)="onAdd('new one')" class="btn btn-primary" @translate20>Add course</button>
   <!-- <div *ngIf="courses.length >0"> -->
   <!-- <div *ngIf="courses.length > 0; else noCourses"> -->
   <div *ngIf="courses.length >0 ;then showCources else noCourses"></div>
